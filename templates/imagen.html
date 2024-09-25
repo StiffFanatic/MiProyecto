@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Imagen</title>
+    <style>
+        #imagen {
+            width: 600px;
+            height: 600px;
+            transition: transform 0.1s linear;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tu peso es {{ peso }} kg</h1>
+    <img id="imagen" src="/imagen" alt="Imagen">
+
+    <audio autoplay>
+        <source src="/musica" type="audio/mp3">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <script>
+        let angle = 0;
+        const img = document.getElementById('imagen');
+
+        function rotarImagen() {
+            angle = (angle + 2) % 360;
+            img.style.transform = `rotate(${angle}deg)`;
+        }
+
+        setInterval(rotarImagen, 50);  // Rotar la imagen cada 50 ms
+    </script>
+</body>
+</html>
